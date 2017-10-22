@@ -14,6 +14,7 @@ class TrainXGBBoost:
 
     def __init__(self, num_historical_days, days=10, pct_change=0):
         self.data = []
+        self.s_data = []
         self.labels = []
         self.test_data = []
         self.test_labels = []
@@ -42,6 +43,7 @@ class TrainXGBBoost:
                 df.rolling(num_historical_days).mean().shift(-num_historical_days))
                 /(df.rolling(num_historical_days).max().shift(-num_historical_days)
                 -df.rolling(num_historical_days).min().shift(-num_historical_days)))
+                
                 df['labels'] = labels
                 #Drop the last 10 day that we don't have data for
                 df = df.dropna()
@@ -56,7 +58,6 @@ class TrainXGBBoost:
                 for i in range(num_historical_days, len(df), num_historical_days):
                     features = sess.run(gan.features, feed_dict={gan.X:[data[i-num_historical_days:i]]})
                     self.data.append(features[0])
-                    print(features[0])
                     self.labels.append(labels[i-1])
                 data = test_df[['Open', 'High', 'Low', 'Close', 'Volume']].values
                 labels = test_df['labels'].values

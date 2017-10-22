@@ -17,13 +17,13 @@ class TrainCNN:
         self.labels = []
         self.test_data = []
         self.test_labels = []
-        self.cnn = CNN(num_features=5, num_historical_days=num_historical_days, is_train=False)
+        self.cnn = CNN(num_features=5, num_historical_days=num_historical_days, is_train=True)
         files = [os.path.join('./stock_data', f) for f in os.listdir('./stock_data')]
         for file in files:
             print(file)
             df = pd.read_csv(file, index_col='Date', parse_dates=True)
             df = df[['Open','High','Low','Close','Volume']]
-            labels = df.Close.pct_change(days).map(lambda x: [int(x > pct_change/100.0), int(x <= pct_change/100.0)])
+            labels = df.Close.pct_change(days).map(lambda x: [int(x <= pct_change/100.0), int(x > pct_change/100.0)])
             df = ((df -
             df.rolling(num_historical_days).mean().shift(-num_historical_days))
             /(df.rolling(num_historical_days).max().shift(-num_historical_days)
@@ -63,7 +63,7 @@ class TrainCNN:
                 batch = []
                 labels = []
 
-    def train(self, print_steps=100, display_steps=100, save_steps=1000, batch_size=128, keep_prob=0.6):
+    def train(self, print_steps=100, display_steps=100, save_steps=1000, batch_size=128, keep_prob=0.8):
         if not os.path.exists('./cnn_models'):
             os.makedirs('./cnn_models')
         if not os.path.exists('./logs'):

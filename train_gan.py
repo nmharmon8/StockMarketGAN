@@ -36,7 +36,7 @@ class TrainGan:
                 self.data.append(df.values[i-num_historical_days:i])
 
         self.gan = GAN(num_features=5, num_historical_days=num_historical_days,
-                        generator_input_size=200)
+                        generator_input_size=200, is_train=True)
 
     def random_batch(self, batch_size=128):
         batch = []

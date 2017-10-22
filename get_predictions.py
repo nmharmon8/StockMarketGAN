@@ -1,13 +1,14 @@
 from get_stock_data import download_all
 
 #Download Stocks
-download_all()
+#download_all()
 
 
-
+import numpy as np
 import os
 import pandas as pd
 from gan import GAN
+from cnn import CNN
 import random
 import tensorflow as tf
 import xgboost as xgb
@@ -38,11 +39,12 @@ class Predict:
             /(df.rolling(num_historical_days).max().shift(-num_historical_days)
             -df.rolling(num_historical_days).min().shift(-num_historical_days)))
             df = df.dropna()
-            self.data.append((file.split('/')[-1], df.index[0], df[200:200+num_historical_days].values))
+            self.data.append((file.split('/')[-1], df.index[0], df[:num_historical_days].values))
 
 
     def gan_predict(self):
-    	tf.reset_default_graph()
+        out = 'Predictions made using GAN features:\n'
+        tf.reset_default_graph()
         gan = GAN(num_features=5, num_historical_days=self.num_historical_days,
                         generator_input_size=200, is_train=False)
         with tf.Session() as sess:
@@ -51,12 +53,32 @@ class Predict:
             saver.restore(sess, self.gan_model)
             clf = joblib.load(self.xgb_model)
             for sym, date, data in self.data:
-	            features = sess.run(gan.features, feed_dict={gan.X:[data]})
-	            features = xgb.DMatrix(features)
-	            print('{} {} {}'.format(str(date).split(' ')[0], sym, clf.predict(features)[0][1] > 0.5))
-	            
+                features = sess.run(gan.features, feed_dict={gan.X:[data]})
+                features = xgb.DMatrix(list(features))
+                pred  = clf.predict(features)
+                if pred[0][1] > 0.5:
+                    out += '{} {} {}\n'.format(str(date).split(' ')[0], sym, pred[0][1])
+        print(out)
+        return out
+
+    def cnn_predict(self):
+        out = 'Predictions using CNN:\n'
+        tf.reset_default_graph()
+        cnn = CNN(num_features=5, num_historical_days=self.num_historical_days, is_train=False)
+        with tf.Session() as sess:
+            sess.run(tf.global_variables_initializer())
+            saver = tf.train.Saver()
+            saver.restore(sess, self.cnn_modle)
+            for sym, date, data in self.data:
+                pred = sess.run(cnn.logits, feed_dict={cnn.X:[data]})[0]
+                if np.argmax(pred) == 1:
+                    out += '{} {} {}\n'.format(str(date).split(' ')[0], sym, pred[1])
+        print(out)
+        return out
+
 
 
 if __name__ == '__main__':
-	p = Predict()
-	p.gan_predict()
+    p = Predict()
+    p.gan_predict()
+    p.cnn_predict()

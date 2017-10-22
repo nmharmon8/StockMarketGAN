@@ -60,7 +60,7 @@ class CNN():
 
 
             W2 = tf.Variable(tf.truncated_normal([32, 2]))
-            logits = tf.matmul(h1, W2)
+            self.logits = logits = tf.matmul(h1, W2)
 
             #self.accuracy = tf.metrics.accuracy(tf.argmax(self.Y, 1), tf.argmax(logits, 1))
             self.accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(self.Y, 1), tf.argmax(logits, 1)), tf.float32))
