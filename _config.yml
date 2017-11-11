@@ -1,3 +1,4 @@
+markdown: redcarpet
+baseurl: StockMarketGAN
+exclude: ['README.md']
 theme: jekyll-theme-cayman
-prose:
-  media: media
