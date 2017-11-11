@@ -32,7 +32,7 @@ stock_symbols = ['AAPL', 'GOOG', 'COST', 'FB', 'INTU', 'ISRG']
 url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'
 
 if not os.path.exists('./stock_data'):
-	    os.makedirs('./stock_data')
+	os.makedirs('./stock_data')
 
 
 ```
