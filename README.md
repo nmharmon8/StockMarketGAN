@@ -67,6 +67,9 @@ class GAN():
     def __init__(self, num_features, num_historical_days, generator_input_size):
 ```
 
+Now we can begien defining the network architecture. 
+
+
 **Results** 
 The confusion matrix shows the results of the model's classification. The perfect confusion matrix would only have predictions on the main diagonal. Each number off the main diagonal is a misclassification.  
 
