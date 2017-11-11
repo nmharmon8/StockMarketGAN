@@ -33,6 +33,10 @@ url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'
 
 if not os.path.exists('./stock_data'):
 	os.makedirs('./stock_data')
+    
+for symbol in stock_symbols:
+	try:
+    	stock_url = url.format(symbol, quandl_api_key)
 
 
 ```
