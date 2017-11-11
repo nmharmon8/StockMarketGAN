@@ -23,6 +23,7 @@ The first step is to download the historicl stock data. I use ![Quandl](www.quan
 #List of stocks to download
 stock_tickers = ['AAPL', 'GOOG', 'COST', 'FB', 'INTU', 'ISRG']
 
+
 ```
 
 **Results** 
