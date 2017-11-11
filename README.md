@@ -12,7 +12,7 @@ Historical prices of stocks are likely not very predictive of the future price o
 The GAN is trained on 96 stocks off the Nasdaq. Each stock is normalized using a 20-day rolling window (data-mean)/(max-min). The last 356 days (1.4 years) of trading are held out as a test set. Time series of 20 day periods are constructed and used as input to the GAN. Once the GAN is finished training, the activated weighs from the last convolutional lays in the Discriminator is used as the new representation of the data. These features have information that is useful for telling whether a given sample is real or fake. They are not guaranteed to be predictive of the direction of the stock market. XGBoost is trained to classify whether the stock will go up or down over some period of time using the features extracted from the Discriminator.
 
 **Testing**
-The data the was held out in the training phase is run through the Discriminator portion of the GAN and the activated weights of the last convolutional layer are extracted. The extracted features are then classified using XGBoost.
+The data the was held out in the training phase is run through the Discriminator portion of the GAN and the activated weights from the last convolutional layer are extracted. The extracted features are then classified using the trained XGBoost model.
 
 **Results** 
 The confusion matrix shows the results of the model's classification. The perfect confusion matrix would only have predictions on the main diagonal. Each number off the main diagonal is a misclassification.  
