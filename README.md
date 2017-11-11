@@ -164,5 +164,32 @@ The discriminator network will be defined slightly differently. This is because 
 ```
 Now that the weights for the discriminator are defined we will make a function to construct the operation over the weights. The function can be called multiple times to make different paths.  
 ```python
+#GAN Class init method
+		def discriminator(X):
+			#Create a convolution that will use the kernel defined 
+			#above and convolve it over X
+			conv = tf.nn.conv2d(X,k1,strides=[1, 1, 1, 1],padding='SAME')
+			#active the result with relu
+			relu = tf.nn.relu(tf.nn.bias_add(conv, b1))
 
+			#Use the next kernel to convolve over the result 
+			conv = tf.nn.conv2d(relu, k2,strides=[1, 1, 1, 1],padding='SAME')
+			relu = tf.nn.relu(tf.nn.bias_add(conv, b2))
+
+			conv = tf.nn.conv2d(relu, k3, strides=[1, 1, 1, 1], padding='VALID')
+			relu = tf.nn.relu(tf.nn.bias_add(conv, b3))
+
+			#Find the size of the result
+			flattened_convolution_size = int(relu.shape[1]) * int(relu.shape[2]) * int(relu.shape[3])
+			
+			flattened_convolution = features = tf.reshape(relu, [-1, flattened_convolution_size])
+
+			#Put convolutional features through fully connected layer
+			h1 = tf.nn.relu(tf.matmul(flattened_convolution, W1) + b4)
+
+			#Final fully connected layer
+			D_logit = tf.matmul(h1, W2)
+
+			#return the logit and the features
+			return D_logit, features
 ```
