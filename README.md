@@ -86,6 +86,7 @@ Now we can begin defining the network architecture. The first step in to define 
 		X = tf.reshape(self.X, [-1, num_historical_days, 1, num_features])
 ```
 
+Now we define the network architecture for the generator. The Generator will take in a samples from a distribution Z and learn to create fake stock data. 
 
 ```python
 #Gan Class init method
