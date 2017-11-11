@@ -33,16 +33,16 @@ url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'
 
 if not os.path.exists('./stock_data'):
 	os.makedirs('./stock_data')
-    
+	
 for symbol in stock_symbols:
 	try:
-    	stock_url = url.format(symbol, quandl_api_key)
-        response = urllib2.urlopen(stock_url)
-        quotes = response.read()
-        with open(os.path.join('./stock_data', symbol), 'wb') as f:
-        	f.write(quotes)
+		stock_url = url.format(symbol, quandl_api_key)
+		response = urllib2.urlopen(stock_url)
+		quotes = response.read()
+		with open(os.path.join('./stock_data', symbol), 'wb') as f:
+			f.write(quotes)
 	except Exception as e:
-    	print('Failed to download {}'.format(symbol)
+		print('Failed to download {}'.format(symbol)
 ```
 
 **Results** 
