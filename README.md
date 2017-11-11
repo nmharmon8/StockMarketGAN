@@ -42,7 +42,8 @@ for symbol in stock_symbols:
         lines = quotes.strip().split('\n')
         with open(os.path.join('./stock_data', symbol), 'wb') as f:
         	f.write(lines)
-
+	except Exception as e:
+    	print('Failed to download {}'.format(symbol)
 ```
 
 **Results** 
