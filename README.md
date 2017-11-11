@@ -33,4 +33,4 @@ Predicting over a short time interval seems to be harder. Results loss significa
 
 Just knowing that the stock will go up or down is of limited use. A lot of stocks will go up in a day but an investor will want to only buy the stocks that will go up the most, maximizing returns. This time the XGBoost model was trained to predict stocks that would go up by 10% or more over the following 10 days. 
 
-![cm]({{site.baseurl}}/https://github.com/nmharmon8/StockMarketGAN/blob/master/figures/XGB_GAN_Confusion_Matrix_Up_Or_Down_Over_10_Days_10_percent_normalize.png)
+![cm](/https://github.com/nmharmon8/StockMarketGAN/blob/master/figures/XGB_GAN_Confusion_Matrix_Up_Or_Down_Over_10_Days_10_percent_normalize.png)
