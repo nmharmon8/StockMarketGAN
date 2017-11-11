@@ -20,6 +20,8 @@ The data the was held out in the training phase is run through the Discriminator
 The first step is to download the historicl stock data. I use ![Quandl](www.quandl.com) as my data source. They provide the basic stock data for free. You will need to create a free account to get an api key. 
 
 ```python
+import urllib2
+import os
 #Your API key 
 quandl_api_key = 'Your API KEY'
 
@@ -27,6 +29,7 @@ quandl_api_key = 'Your API KEY'
 stock_symbols = ['AAPL', 'GOOG', 'COST', 'FB', 'INTU', 'ISRG']
 
 url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'
+
 
 ```
 
