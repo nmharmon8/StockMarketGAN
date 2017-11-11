@@ -97,7 +97,7 @@ Now we define the network architecture for the generator. The Generator will tak
 		#The output of the generator is the number of features per day
 		#times the number of days
 		generator_output_size = num_features*num_historical_days
-		with tf.variable_scope("generator"):
+		with tf.variable_scope('generator'):
 
 			#Define weights for the first layer in the generator
 			W1 = tf.Variable(tf.truncated_normal(
