@@ -70,7 +70,7 @@ class GAN():
 Now we can begin defining the network architecture. The first step in to define the inputs to the network. The network will have two inputs (stock data time series and sample from distribution)
 
 ```python
-#Gan Class
+#Gan Class init method
 	def __init__(self, num_features, num_historical_days, generator_input_size):
 		
 		#Real samples input
@@ -80,4 +80,8 @@ Now we can begin defining the network architecture. The first step in to define 
 		#Sample form distribution for input to generator
 		self.Z = tf.placeholder(tf.float32, 
 				shape=[None, generator_input_size])
+
+
+		#Reshape input for convolutional layers
+		X = tf.reshape(self.X, [-1, num_historical_days, 1, num_features])
 ```
