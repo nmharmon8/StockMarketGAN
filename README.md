@@ -59,6 +59,18 @@ tf.set_random_seed(42)
 np.random.seed(42)
 ```
 
+Now we will declare a GAN class. 
+
+```python
+import tensorflow as tf
+import numpy as np
+import os
+
+#Set random seed for repudiability 
+tf.set_random_seed(42)
+np.random.seed(42)
+```
+
 **Results** 
 The confusion matrix shows the results of the model's classification. The perfect confusion matrix would only have predictions on the main diagonal. Each number off the main diagonal is a misclassification.  
 
