@@ -37,7 +37,11 @@ if not os.path.exists('./stock_data'):
 for symbol in stock_symbols:
 	try:
     	stock_url = url.format(symbol, quandl_api_key)
-
+        response = urllib2.urlopen(stock_url)
+        quotes = response.read()
+        lines = quotes.strip().split('\n')
+        with open(os.path.join('./stock_data', symbol), 'wb') as f:
+        	f.write(lines)
 
 ```
 
