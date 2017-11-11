@@ -45,7 +45,6 @@ for symbol in stock_symbols:
             f.write(quotes)
     except Exception as e:
         print('Failed to download {}'.format(symbol))
-        print(e)
 ```
 
 **Results** 
