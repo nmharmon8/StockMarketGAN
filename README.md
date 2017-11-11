@@ -70,7 +70,7 @@ class GAN():
 Now we can begin defining the network architecture. The first step in to define the inputs to the network. The network will have two inputs (stock data time series and sample from distribution)
 
 ```python
-#Gan Class init method
+#GAN Class init method
 	def __init__(self, num_features, num_historical_days, generator_input_size):
 		
 		#Real samples input
