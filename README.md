@@ -22,6 +22,7 @@ The first step is to download the historicl stock data. I use ![Quandl](www.quan
 ```python
 import urllib2
 import os
+
 #Your API key 
 quandl_api_key = 'Your API KEY'
 
@@ -29,6 +30,9 @@ quandl_api_key = 'Your API KEY'
 stock_symbols = ['AAPL', 'GOOG', 'COST', 'FB', 'INTU', 'ISRG']
 
 url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'
+
+if not os.path.exists('./stock_data'):
+	    os.makedirs('./stock_data')
 
 
 ```
