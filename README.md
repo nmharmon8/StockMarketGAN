@@ -86,7 +86,13 @@ Now we can begin defining the network architecture. The first step in to define 
 		X = tf.reshape(self.X, [-1, num_historical_days, 1, num_features])
 ```
 
+
 ```python
+#Gan Class init method
+		#Reshape input for convolutional layers 
+		#(the features are like RGB in an image)
+		X = tf.reshape(self.X, [-1, num_historical_days, 1, num_features])
+
 		#The output of the generator is the number of features per day
 		#times the number of days
 		generator_output_size = num_features*num_historical_days
