@@ -26,7 +26,7 @@ quandl_api_key = 'Your API KEY'
 #List of stocks to download
 stock_symbols = ['AAPL', 'GOOG', 'COST', 'FB', 'INTU', 'ISRG']
 
-url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'.format(symbol, quandl_api_key)
+url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'
 
 ```
 
