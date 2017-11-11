@@ -27,7 +27,7 @@ The predictions over a 10 day period are quite good.
 
 Predicting over a short time interval seems to be harder. Results loss significant accuracy when trying to predict the next day movement of the stock. 
 
-![alt text](https://github.com/nmharmon8/StockMarketGAN/blob/master/media/XGB_GAN_Confusion_Matrix_Up_Or_Down_Over_1_Days_normalize.png)
+![alt text]({{site.baseurl}}/media/XGB_GAN_Confusion_Matrix_Up_Or_Down_Over_1_Days_normalize.png)
 
 **Predictions 10% Gain Over 10 Days**
 
