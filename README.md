@@ -126,5 +126,7 @@ Now we define the network architecture for the generator. The Generator will tak
 				[-1, num_historical_days, 1, num_features])
 
 			#Keep track of the weights and biases
+            #You can use the variable scope to keep track, 
+            #but this is easy to read. 
 			generator_weights = [W1, b1, W2, b2, W3, b3]
 ```
