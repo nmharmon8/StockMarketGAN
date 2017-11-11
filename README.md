@@ -39,7 +39,7 @@ for symbol in stock_symbols:
     	stock_url = url.format(symbol, quandl_api_key)
         response = urllib2.urlopen(stock_url)
         quotes = response.read()
-        lines = quotes.strip()
+        lines = quotes
         with open(os.path.join('./stock_data', symbol), 'wb') as f:
         	f.write(lines)
 	except Exception as e:
