@@ -85,3 +85,38 @@ Now we can begin defining the network architecture. The first step in to define 
 		#Reshape input for convolutional layers
 		X = tf.reshape(self.X, [-1, num_historical_days, 1, num_features])
 ```
+
+```python
+		#The output of the generator is the number of features per day
+		#times the number of days
+		generator_output_size = num_features*num_historical_days
+		with tf.variable_scope("generator"):
+
+			#Define weights for the first layer in the generator
+			W1 = tf.Variable(tf.truncated_normal(
+				[generator_input_size, generator_output_size*10]))
+			b1 = tf.Variable(tf.truncated_normal([generator_output_size*10]))
+
+			#Multiply the weights and the bias and active
+			h1 = tf.nn.sigmoid(tf.matmul(self.Z, W1) + b1)
+
+			#Define weights for the second layer in the generator
+			W2 = tf.Variable(tf.truncated_normal(
+				[generator_output_size*10, generator_output_size*5]))
+			b2 = tf.Variable(tf.truncated_normal([generator_output_size*5]))
+
+			#Multiply the weights and the bias and active
+			h2 = tf.nn.sigmoid(tf.matmul(h1, W2) + b2)
+
+			#Define weights for the third layer in the generator
+			W3 = tf.Variable(tf.truncated_normal(
+				[generator_output_size*5, generator_output_size]))
+			b3 = tf.Variable(tf.truncated_normal([generator_output_size]))
+
+			#Final multiplication and add
+			generated_data = tf.matmul(h2, W3) + b3
+			generated_data = tf.reshape(generated_data, [-1, num_historical_days, 1, num_features])
+
+			#Keep track of the weights and biases
+			generator_weights = [W1, b1, W2, b2, W3, b3]
+```
