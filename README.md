@@ -35,3 +35,4 @@ Just knowing that the stock will go up or down is of limited use. A lot of stock
 
 ![alt text](https://github.com/nmharmon8/StockMarketGAN/blob/master/figures/XGB_GAN_Confusion_Matrix_Up_Or_Down_Over_10_Days_10_percent_normalize.png)
  
+<img src="https://github.com/nmharmon8/StockMarketGAN/blob/master/figures/XGB_GAN_Confusion_Matrix_Up_Or_Down_Over_10_Days_10_percent_normalize.png" alt="Confusion_Matrix">
