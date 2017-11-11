@@ -47,6 +47,8 @@ for symbol in stock_symbols:
         print('Failed to download {}'.format(symbol))
 ```
 
+Now that we have the data we will start writing the GAN.
+
 **Results** 
 The confusion matrix shows the results of the model's classification. The perfect confusion matrix would only have predictions on the main diagonal. Each number off the main diagonal is a misclassification.  
 
