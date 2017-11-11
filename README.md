@@ -59,7 +59,7 @@ tf.set_random_seed(42)
 np.random.seed(42)
 ```
 
-Now we will declare a GAN class. 
+Now we will declare a GAN class that takes the number of features (Open, Close, High, Low, Volume), the number of days in each time series and the size the input distribution to the generator. 
 
 ```python
 import tensorflow as tf
