@@ -162,3 +162,7 @@ The discriminator network will be defined slightly differently. This is because 
 			#Keep track of weights
 			discriminator_weights = [k1, b1, k2, b2, k3, b3, W1, b4, W2]
 ```
+Now that the weights for the discriminator are defined we will make a function to construct the operation over the weights. The function can be called multiple times to make different paths.  
+```python
+
+```
