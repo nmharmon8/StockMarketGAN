@@ -134,5 +134,31 @@ Now we define the network architecture for the generator. The Generator will tak
 ```
 The discriminator network will be defined slightly differently. This is because there are essentially two paths through the network. One path is formed by the real stock data samples feeding the discriminator and the second path is formed by the generator creating a sample and feeding the discriminator. Therefore we will defined the weights for the discriminator, but then make two path that use the weights. 
 ```python
+#GAN Class init method
+		with tf.variable_scope("discriminator"):
+			#[filter_height, filter_width, in_channels, out_channels]
+			#convolution kernel
+			k1 = tf.Variable(tf.truncated_normal([3, 1, num_features, 32],
+				stddev=0.1,seed=SEED, dtype=tf.float32))
+			b1 = tf.Variable(tf.zeros([32], dtype=tf.float32))
 
+			#second convolution kernel
+			k2 = tf.Variable(tf.truncated_normal([3, 1, 32, 64],
+				stddev=0.1,seed=SEED, dtype=tf.float32))
+			b2 = tf.Variable(tf.zeros([64], dtype=tf.float32))
+
+			#third convolution kernel 
+			k3 = tf.Variable(tf.truncated_normal([3, 1, 64, 128],
+				stddev=0.1,seed=SEED, dtype=tf.float32))
+			b3 = tf.Variable(tf.zeros([128], dtype=tf.float32))
+
+			#Fully connected layer
+			W1 = tf.Variable(tf.truncated_normal([18*1*128, 128]))
+			b4 = tf.Variable(tf.truncated_normal([128]))
+
+			#Fully connected layer
+			W2 = tf.Variable(tf.truncated_normal([128, 1]))
+
+			#Keep track of weights
+			discriminator_weights = [k1, b1, k2, b2, k3, b3, W1, b4, W2]
 ```
