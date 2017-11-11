@@ -88,6 +88,8 @@ Now we can begin defining the network architecture. The first step in to define 
 
 Now we define the network architecture for the generator. The Generator will take in a samples from a distribution Z and learn to create fake stock data. 
 
+![GeneratorNetwork.png]({{site.baseurl}}/media/GeneratorNetwork.png)
+
 ```python
 #GAN Class init method
 		#Reshape input for convolutional layers 
