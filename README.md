@@ -24,7 +24,7 @@ The first step is to download the historicl stock data. I use ![Quandl](www.quan
 quandl_api_key = 'Your API KEY'
 
 #List of stocks to download
-stock_tickers = ['AAPL', 'GOOG', 'COST', 'FB', 'INTU', 'ISRG']
+stock_symbols = ['AAPL', 'GOOG', 'COST', 'FB', 'INTU', 'ISRG']
 
 url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'.format(symbol, quandl_api_key)
 
