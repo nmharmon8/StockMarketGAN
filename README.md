@@ -47,34 +47,16 @@ for symbol in stock_symbols:
         print('Failed to download {}'.format(symbol))
 ```
 
-Now that we have the data we will start writing the GAN.
+Now that we have the data we will start writing the GAN.Start by importing TensorFlow and numpy. 
 
 ```python
-import urllib2
+import tensorflow as tf
+import numpy as np
 import os
 
-#Your API key 
-quandl_api_key = 'odn2xyvCE-sKzMK7LfTX'
-
-#List of stocks to download
-#Add more that you want to lean on
-stock_symbols = ['AAPL', 'GOOG', 'COST', 'FB', 'INTU', 'ISRG']
-
-url = 'https://www.quandl.com/api/v3/datasets/WIKI/{}.csv?api_key={}'
-
-if not os.path.exists('./stock_data'):
-    os.makedirs('./stock_data')
-    
-for symbol in stock_symbols:
-    print('Downloading {}'.format(symbol))
-    try:
-        stock_url = url.format(symbol, quandl_api_key)
-        response = urllib2.urlopen(stock_url)
-        quotes = response.read()
-        with open(os.path.join('./stock_data', symbol), 'wb') as f:
-            f.write(quotes)
-    except Exception as e:
-        print('Failed to download {}'.format(symbol))
+#Set random seed for repudiability 
+tf.set_random_seed(42)
+np.random.seed(42)
 ```
 
 **Results** 
