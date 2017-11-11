@@ -180,9 +180,11 @@ Now that the weights for the discriminator are defined we will make a function t
 			relu = tf.nn.relu(tf.nn.bias_add(conv, b3))
 
 			#Find the size of the result
-			flattened_convolution_size = int(relu.shape[1]) * int(relu.shape[2]) * int(relu.shape[3])
+			flattened_convolution_size = int(relu.shape[1]) 
+				* int(relu.shape[2]) * int(relu.shape[3])
 			
-			flattened_convolution = features = tf.reshape(relu, [-1, flattened_convolution_size])
+			flattened_convolution = features = tf.reshape(relu, 
+				[-1, flattened_convolution_size])
 
 			#Put convolutional features through fully connected layer
 			h1 = tf.nn.relu(tf.matmul(flattened_convolution, W1) + b4)
