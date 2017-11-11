@@ -89,7 +89,7 @@ Now we can begin defining the network architecture. The first step in to define 
 Now we define the network architecture for the generator. The Generator will take in a samples from a distribution Z and learn to create fake stock data. 
 
 ```python
-#Gan Class init method
+#GAN Class init method
 		#Reshape input for convolutional layers 
 		#(the features are like RGB in an image)
 		X = tf.reshape(self.X, [-1, num_historical_days, 1, num_features])
@@ -122,7 +122,8 @@ Now we define the network architecture for the generator. The Generator will tak
 
 			#Final multiplication and add
 			generated_data = tf.matmul(h2, W3) + b3
-			generated_data = tf.reshape(generated_data, [-1, num_historical_days, 1, num_features])
+			generated_data = tf.reshape(generated_data, 
+				[-1, num_historical_days, 1, num_features])
 
 			#Keep track of the weights and biases
 			generator_weights = [W1, b1, W2, b2, W3, b3]
