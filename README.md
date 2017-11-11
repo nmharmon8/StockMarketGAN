@@ -40,7 +40,7 @@ for symbol in stock_symbols:
         response = urllib2.urlopen(stock_url)
         quotes = response.read()
         with open(os.path.join('./stock_data', symbol), 'wb') as f:
-        	f.write(lines)
+        	f.write(quotes)
 	except Exception as e:
     	print('Failed to download {}'.format(symbol)
 ```
