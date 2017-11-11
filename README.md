@@ -71,9 +71,11 @@ Now we can begin defining the network architecture. The first step in to define 
 
 ```python
 	#
-    def __init__(self, num_features, num_historical_days, generator_input_size):
-	self.X = tf.placeholder(tf.float32, 
-    	shape=[None, num_historical_days, num_features])
+	def __init__(self, num_features, num_historical_days, generator_input_size):
+		
+		self.X = tf.placeholder(tf.float32, shape=[None, num_historical_days, num_features])
+		X = tf.reshape(self.X, [-1, num_historical_days, 1, num_features])
+		self.Z = tf.placeholder(tf.float32, shape=[None, generator_input_size])
 ```
 
 
