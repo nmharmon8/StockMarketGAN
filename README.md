@@ -134,4 +134,5 @@ Now we define the network architecture for the generator. The Generator will tak
 ```
 The discriminator network will be defined slightly differently. This is because there are essentially two paths through the network. One path is formed by the real stock data samples feeding the discriminator and the second path is formed by the generator creating a sample and feeding the discriminator. Therefore we will defined the weights for the discriminator, but then make two path that use the weights. 
 ```python
+
 ```
