@@ -124,12 +124,11 @@ Now we define the network architecture for the generator. The Generator will tak
 
 			#Final multiplication and add
 			generated_data = tf.matmul(h2, W3) + b3
+			#Make shape match what the discriminator expects
 			generated_data = tf.reshape(generated_data, 
 				[-1, num_historical_days, 1, num_features])
 
 			#Keep track of the weights and biases
-            #You can use the variable scope to keep track, 
-            #but this is easy to read. 
 			generator_weights = [W1, b1, W2, b2, W3, b3]
 ```
 The discriminator network will be defined slightly differently. This is because there are essentially two paths through the network. One path is formed by the real stock data samples feeding the discriminator and the second path is formed by the generator creating a sample and feeding the discriminator. Therefore we will defined the weights for the discriminator, but then make two path that use the weights. 
