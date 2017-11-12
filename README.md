@@ -205,3 +205,4 @@ Constructs the paths through the network using the discriminator function. The f
 		#and pass the generated data to the discriminator
         D_logit_fake, _ = discriminator(generated_data)
 ```
+Finally will will write the loss function.
