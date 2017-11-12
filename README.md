@@ -194,3 +194,14 @@ Now that the weights for the discriminator are defined we will make a function t
 			#return the logit and the features
 			return D_logit, features
 ```
+Constructs the paths through the network using the discriminator function. The first path will take the real samples and run the discriminator on them. The second path will run the generator and run tha discriminator on the generated data.  
+```python
+#GAN Class init method
+		#construct the first path through the network -- real samples 
+		#into the discriminator
+		D_logit_real, self.features = discriminator(X)
+
+		#construct the second path through the network -- run generator 
+		#and pass the generated data to the discriminator
+        D_logit_fake, _ = discriminator(generated_data)
+```
