@@ -50,7 +50,7 @@ The stocks can be changed by editing utils/companylist.csv.
 To train a model go to the train_models directory. And run the training script. 
 
 ```bash
-cd train_models
+cd ../train_models
 python train_bigan_shared_weights.py
 ```
 The model will continue to train forever. Every 100 steps it will save its weights to the model's directory. To finish training simple kill the script. 
