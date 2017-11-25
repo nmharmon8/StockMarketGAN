@@ -13,16 +13,13 @@ This project makes a modification to the BiGAN. Rather than learning to encode a
 # Approach 
 
 **Data**
-Historical prices of stocks are likely not very predictive of the future price of the stock, but it is free data. Technical indicators are calculated using the historical prices of stocks. Not being a trader I don't know the validity of technical indicators, but if a sufficient number investors use technical indicators to invest such that they move the market, then the historical prices of stocks should suffice to predict the direction of the market correctly more then 50% of the time.
+Historical prices of stocks are likely not very predictive of the future price of the stock, but it is free data. 
 
 **Training**
-The GAN is trained on 96 stocks off the Nasdaq. Each stock is normalized using a 20-day rolling window (data-mean)/(max-min). The last 356 days (1.4 years) of trading are held out as a test set. Time series of 20 day periods are constructed and used as input to the GAN. Once the GAN is finished training, the activated weighs from the last convolutional lays in the Discriminator is used as the new representation of the data. These features have information that is useful for telling whether a given sample is real or fake. They are not guaranteed to be predictive of the direction of the stock market. XGBoost is trained to classify whether the stock will go up or down over some period of time using the features extracted from the Discriminator.
+The GAN is trained on 96 stocks off the Nasdaq. Each stock is normalized using a 20-day rolling window (data-mean)/(max-min). The last 2 years (504 days) of trading are held out as a test set. Time series of 20 day periods are constructed and used as input to the GAN. Once the GAN is finished training, the leaned encoding for the Discriminator features to the generation distribution is used as the new representation of the data. The features are not guaranteed to be predictive of the direction of the stock market, but for other modalities, they have been shown to work well. Random Forests is trained to classify whether the stock will gain 10% over the next 10 trading days. This creates an unbalanced training set so the majority class is undersampled before training the Random Forest. 
 
-**Testing**
-The data the was held out in the training phase is run through the Discriminator portion of the GAN and the activated weights from the last convolutional layer are extracted. The extracted features are then classified using the trained XGBoost model. Multiple models are trained to predict over different periods of time.
-
-**Downloading Data**
-The first step is to download the historicl stock data. I use ([Quandl](www.quandl.com)) as my data source. They provide the basic stock data for free. You will need to create a free account to get an api key. 
+**Results**
+Since the classes are unbalanced, due to not many stocks gaining 10% in 10 days, accuracy is a poor metric. If we always predicted that stocks would not go up then the accuracy would be above 90%. So instead of accuracy, we will use Area Under the Curve (AUC). Check out this video to learn more about [AUC](http://www.dataschool.io/roc-curves-and-auc-explained/). An AUC of 1 would be a perfect model while an AUC of 0.5 means that the model performs the same as randomly picking a label. 
 
 ```python
 import urllib2
