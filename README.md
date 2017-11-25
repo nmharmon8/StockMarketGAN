@@ -5,6 +5,7 @@ Check out the write up of the project and the current results -- [StockMarketGAN
 ##Setup
 
 *Dependencies:*
+[Python 2.7](https://www.python.org/download/releases/2.7/)
 [Pandas](https://pandas.pydata.org/)
 [Tensorflow](https://www.tensorflow.org/)
 [scikit-learn](http://scikit-learn.org/stable/)
