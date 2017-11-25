@@ -25,4 +25,13 @@ cd projec_path
 source env.sh
 ```
 
+Next get a free account with [Quandl](https://www.quandl.com/) and get an api key. Export your key. This can be added to the ~/.bashrc
+
+```bash
+export QUANDL_KEY=you_key_here
+```
+
+
+
+
 
