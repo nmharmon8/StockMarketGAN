@@ -18,10 +18,16 @@ Check out the write up of the project and the current results -- [StockMarketGAN
 
 *[XGBoost](https://github.com/dmlc/xgboost)
 
+First clone the project.
+
+```bash
+git clone git@github.com:nmharmon8/StockMarketGAN.git
+```
+
 To set up the environment, run "source env.sh" from the root directory of the project. 
 
 ```bash
-cd projec_path
+cd StockMarketGAN
 source env.sh
 ```
 
@@ -30,6 +36,8 @@ Next get a free account with [Quandl](https://www.quandl.com/) and get an api ke
 ```bash
 export QUANDL_KEY=you_key_here
 ```
+
+
 
 
 
