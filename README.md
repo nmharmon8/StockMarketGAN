@@ -31,7 +31,8 @@ cd StockMarketGAN
 source env.sh
 ```
 
-Next get a free account with [Quandl](https://www.quandl.com/) and get an api key. Export your key. This can be added to the ~/.bashrc
+
+Next get a free account with [Quandl](https://www.quandl.com/) and get an API key. Export your key. This can be added to the ~/.bashrc
 
 ```bash
 export QUANDL_KEY=you_key_here
@@ -44,12 +45,44 @@ cd utils
 python get_stock_data.py
 ```
 
-The stocks can be change by editing utils/companylist.csv.
+The stocks can be changed by editing utils/companylist.csv.
 
-To train a model go to the train_models directory.
+To train a model go to the train_models directory. And run the training script. 
 
 ```bash
 cd train_models
+python train_bigan_shared_weights.py
+```
+The model will continue to train forever. Every 100 steps it will save its weights to the model's directory. To finish training simple kill the script. 
+
+```bash
+Ctrl+c
+```
+
+When the GAN is finished training the Random Forest model can be trained using the GAN features. The Random Forest model will load the most recently trained GAN from the model's directory. 
+
+```bash
+python train_rf_bigan_shared_weights.py
+```
+
+The random forest script will hold out a test set and report AUC and print a confusion matrix.
+
+To test your model deploy them to the deployed model directory.   
+
+```
+cd ../utils
+python deploy_model.py
+```
+Warning this will overwrite the pre-trained models.
+
+Next, run the test script.
+
+```
+cd ../test_models
+python test_bigan_rf_shared_weights.py
+```
+
+Have Fun.
 
 
 
