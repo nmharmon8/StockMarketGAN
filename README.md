@@ -20,7 +20,7 @@ The GAN is trained on 96 stocks off the Nasdaq. Each stock is normalized using a
 
 **Results**
 First, let's visualize the features leaned by the BiGAN. TSNE will be used to reduce the dimensions too 2D.
-
+![tsne.png]({{site.baseurl}}/media/tsne.png)
 The red dots are negative samples and green are positive samples. There appears to be some structure to the features leaned by the BiGAN, but not related to the target. More experimentation is needed to see what the structure is following, but I suspect the each curve is a specific stock. 
 
 Since the classes are unbalanced, due to not many stocks gaining 10% in 10 days, accuracy is a poor metric. If we always predicted that stocks would not go up then the accuracy would be above 90%. So instead of accuracy, we will use Area Under the Curve (AUC). Check out this video to learn more about [AUC](http://www.dataschool.io/roc-curves-and-auc-explained/). An AUC of 1 would be a perfect model while an AUC of 0.5 means that the model performs the same as randomly picking a label. We can visualize the performance of the classifier using a ROC curve. ![ReceiverOperatingCharacteristic.png]({{site.baseurl}}/media/ReceiverOperatingCharacteristic.png)
