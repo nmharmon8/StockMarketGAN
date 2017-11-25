@@ -2,21 +2,21 @@
 
 Check out the write up of the project and the current results -- [StockMarketGAN](https://nmharmon8.github.io/StockMarketGAN/)
 
-##Setup
+## Setup
 
-*Dependencies:*
+*Dependencies*:
 
-*[Python 2.7](https://www.python.org/download/releases/2.7/)
+  * [Python 2.7](https://www.python.org/download/releases/2.7/)
 
-*[Pandas](https://pandas.pydata.org/)
+  * [Pandas](https://pandas.pydata.org/)
 
-*[Tensorflow](https://www.tensorflow.org/)
+  * [Tensorflow](https://www.tensorflow.org/)
 
-*[scikit-learn](http://scikit-learn.org/stable/)
+  * [scikit-learn](http://scikit-learn.org/stable/)
 
-*[Matplotlib](https://matplotlib.org/)
+  * [Matplotlib](https://matplotlib.org/)
 
-*[XGBoost](https://github.com/dmlc/xgboost)
+  * [XGBoost](https://github.com/dmlc/xgboost)
 
 First clone the project.
 
