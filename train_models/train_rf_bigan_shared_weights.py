@@ -12,5 +12,3 @@ with tf.Session() as sess:
     # saver.restore(sess, "../models/{}".format(model_name))
     rf = RandomForest(num_historical_days=20, days=10, pct_change=10, test_size=504, model=gan, sess=sess)
     rf.train('../models/rf_bigan_sw.pkl', n_estimators=3000, max_depth=1, max_features=1)
-
-

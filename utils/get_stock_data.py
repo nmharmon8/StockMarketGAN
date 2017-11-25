@@ -9,7 +9,7 @@ quandl_api_key = os.environ['QUANDL_KEY']
 
 class nasdaq():
 	def __init__(self):
-		self.output = './stock_data'
+		self.output = '../stock_data'
 		self.company_list = './companylist.csv'
 
 	def build_url(self, symbol):
@@ -38,8 +38,8 @@ def download(i, symbol, url, output):
 		print(e)
 
 def download_all():
-	if not os.path.exists('./stock_data'):
-	    os.makedirs('./stock_data')
+	if not os.path.exists('../stock_data'):
+	    os.makedirs('../stock_data')
 
 	nas = nasdaq()
 	for i, symbol in enumerate(nas.symbols()):
