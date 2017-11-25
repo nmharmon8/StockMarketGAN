@@ -19,8 +19,9 @@ Check out the write up of the project and the current results -- [StockMarketGAN
 *[XGBoost](https://github.com/dmlc/xgboost)
 
 To set up the environment, run "source env.sh" from the root directory of the project. 
+
 ```bash
-cp <project loctain>
+cd projec_path
 source env.sh
 ```
 
