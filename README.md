@@ -81,12 +81,6 @@ Next, run the test script.
 cd ../test_models
 python test_bigan_rf_shared_weights.py
 ```
+The TSNE is done on a small sample size so it will work with 4GB of RAM. If you have more RAM feel free to increase the size of the sample.
 
 Have Fun.
-
-
-
-
-
-
-
