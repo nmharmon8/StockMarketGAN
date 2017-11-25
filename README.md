@@ -6,9 +6,9 @@ Check out the write up of the project and the current results -- [StockMarketGAN
 
 *Dependencies:*
 
-  <p>[Python 2.7](https://www.python.org/download/releases/2.7/)</p>
-  
-  *[Pandas](https://pandas.pydata.org/)
+*[Python 2.7](https://www.python.org/download/releases/2.7/)
+
+*[Pandas](https://pandas.pydata.org/)
 
 *[Tensorflow](https://www.tensorflow.org/)
 
@@ -17,5 +17,11 @@ Check out the write up of the project and the current results -- [StockMarketGAN
 *[Matplotlib](https://matplotlib.org/)
 
 *[XGBoost](https://github.com/dmlc/xgboost)
+
+To set up the environment, run "source env.sh" from the root directory of the project. 
+```bash
+cp <project loctain>
+source env.sh
+```
 
 
