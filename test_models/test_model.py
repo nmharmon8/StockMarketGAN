@@ -150,7 +150,7 @@ class TestModel:
             X = self.X
         print('Running TSNE')
         em = TSNE(n_components=2, random_state=42)
-        X = em.fit_transform(random.sample(X, 20000))
+        X = em.fit_transform(random.sample(X, 1000))
         print('Making plot')
         plt.scatter(map(lambda x: x[0], X), map(lambda x: x[1], X), color=map(lambda x: 'r' if x==0 else 'g', self.labels))
         plt.show()
