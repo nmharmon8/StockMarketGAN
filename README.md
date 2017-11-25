@@ -24,6 +24,8 @@ This show that the classifier is only a little better than random. Another way o
 
 There are a very large number of false positives. If the false positives make some money just not 10% this could still be a valid trading strategy. So let's look at the distribution of the percent returns from the false positives.![Distribution_of_False_Positives.png]({{site.baseurl}}/media/Distribution_of_False_Positives.png)
 
-
+The distribution of the returns on the false positives does not look promising. They appeared skewed towards negative returns. 
+![Distribution_of_Positive_Predictions.png]({{site.baseurl}}/media/Distribution_of_Positive_Predictions.png)
+If we look at the overall distribution of the returns of all positive predictions, it still apperss skewed toward negatiev returns. The mean return for all posstive predition end up being -0.18 a small negitive return.   
 
 
