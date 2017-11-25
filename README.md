@@ -37,6 +37,20 @@ Next get a free account with [Quandl](https://www.quandl.com/) and get an api ke
 export QUANDL_KEY=you_key_here
 ```
 
+Download the ticker data from Quandl
+
+```bash
+cd utils
+python get_stock_data.py
+```
+
+The stocks can be change by editing utils/companylist.csv.
+
+To train a model go to the train_models directory.
+
+```bash
+cd train_models
+
 
 
 
