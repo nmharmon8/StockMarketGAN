@@ -5,6 +5,7 @@ import tensorflow as tf
 import xgboost as xgb
 from sklearn.externals import joblib
 from sklearn import metrics
+from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import pyplot as plt
 from sklearn.metrics import confusion_matrix
 from plot_confusion_matrix import plot_confusion_matrix
@@ -14,7 +15,7 @@ import pickle
 import math
 
 random.seed(42)
-plt.style.use('ggplot')
+#plt.style.use('ggplot')
 
 
 os.environ["CUDA_VISIBLE_DEVICES"]=""
@@ -154,6 +155,23 @@ class TestModel:
         plt.scatter(map(lambda x: x[0], X), map(lambda x: x[1], X), color=map(lambda x: 'r' if x==0 else 'g', self.labels))
         plt.show()
 
+    def truncatedSVDAndTSNE3D(self):
+        if len(self.X[0]) > 50:
+            print('Running SVD')
+            svd = TruncatedSVD(algorithm='randomized', n_components=50, n_iter=7,
+            random_state=42, tol=0.0)
+            X = svd.fit_transform(self.X)
+        else:
+            X = self.X
+        print('Running TSNE')
+        em = TSNE(n_components=3, random_state=42)
+        X = em.fit_transform(random.sample(X, 1000))
+        print('Making plot')
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        ax.scatter(map(lambda x: x[0], X), map(lambda x: x[1], X),  map(lambda x: x[2], X), color=map(lambda x: 'r' if x==0 else 'g', self.labels))
+        plt.show()
+
 
     def accuracy_over_time(self):
         global last_value 
@@ -229,25 +247,31 @@ class TestModel:
         fp_returns = []
         for r, p, l in zip(self.returns, self.preds, self.labels):
             if(int(p > 0.5) == 1 and int(p > 0.5) != l):
-                fp_returns.append(r)
+                fp_returns.append(r*100)
         print(len(fp_returns))
         plt.hist(fp_returns)
+        plt.xlabel('Percent Returns')
+        #plt.ylabel('True Positive Rate')
+        plt.title('Distribution of False Positives')
         plt.show()
 
     def distribution_positive(self):
         p_returns = []
         for r, p, l in zip(self.returns, self.preds, self.labels):
             if(int(p > 0.5) == 1):
-                p_returns.append(r)
+                p_returns.append(r*100)
         print(len(p_returns))
         plt.hist(p_returns, bins=60)
+        plt.xlabel('Percent Returns')
+        #plt.ylabel('True Positive Rate')
+        plt.title('Distribution of Positive Predictions')
         plt.show()
 
     def mean_return_of_positive_preds(self):
         p_returns = []
         for r, p, l in zip(self.returns, self.preds, self.labels):
             if(int(p > 0.5) == 1):
-                p_returns.append(r)
+                p_returns.append(r*100)
         mean_return = sum(p_returns) / len(p_returns)
         print(mean_return)
         return mean_return

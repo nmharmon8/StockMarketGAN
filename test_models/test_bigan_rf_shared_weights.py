@@ -25,10 +25,11 @@ with tf.Session() as sess:
 
 
 # tm.auc()
-tm.roc()
-# tm.distribution_false_positive()
-# tm.distribution_positive()
-# tm.mean_return_of_positive_preds()
+# tm.roc()
+#tm.distribution_false_positive()
+#tm.distribution_positive()
+#tm.mean_return_of_positive_preds()
 # tm.plot_cm()
 # tm.plot_cm_half_data()
-# tm.truncatedSVDAndTSNE()
+#tm.truncatedSVDAndTSNE()
+tm.truncatedSVDAndTSNE3D()
