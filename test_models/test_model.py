@@ -14,6 +14,8 @@ import pickle
 import math
 
 random.seed(42)
+plt.style.use('ggplot')
+
 
 os.environ["CUDA_VISIBLE_DEVICES"]=""
 
@@ -102,10 +104,10 @@ class TestModel:
 
     #Receiver operating characteristic
     def roc(self):
-        ax = plt.subplot(111)  
-        ax.spines["top"].set_visible(False)  
-        ax.spines["right"].set_visible(False)  
-        ax.get_xaxis().tick_bottom()  
+        # ax = plt.subplot(111)  
+        # ax.spines["top"].set_visible(False)  
+        # ax.spines["right"].set_visible(False)  
+        # ax.get_xaxis().tick_bottom()  
     
 
         fpr, tpr, thresholds = metrics.roc_curve(map(lambda x: x+1, self.labels), self.preds, pos_label=2)
