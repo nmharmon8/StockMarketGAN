@@ -24,7 +24,8 @@ First clone the project.
 git clone https://github.com/nmharmon8/StockMarketGAN.git
 ```
 
-To set up the environment, run "source env.sh" from the root directory of the project. 
+To set up the environment, run "source env.sh" from the root directory of the project.
+This must be run  every time. 
 
 ```bash
 cd StockMarketGAN
