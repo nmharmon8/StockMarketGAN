@@ -39,7 +39,7 @@ This shows that the classifier is only a little better than random. Another way 
 
 The top row shows that the classifier correctly classified 29,007 samples as true negatives while misclassifying 16,780 samples as false positives. The bottom row shows that the classifier misclassified 900 samples as false negatives and correctly classified 900 examples as true positives. The perfect confusion matrix would only have values on the diagonal.
 
-There are a very large number of false positives. If the false positive predictions make some money (just not 10%) this could still be a valid trading strategy. So let's look at the distribution of the percent returns from the false positives.
+There are a very large number of false positives. If the false positive predictions make some money (just not 10%) this could still be a valid trading strategy. So let's look at the distribution of the percent returns from the false positive predictions.
 
 ![Distribution_of_False_Positives.png]({{site.baseurl}}/media/Distribution_of_False_Positives.png)
 
