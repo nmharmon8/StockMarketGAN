@@ -33,7 +33,7 @@ Since the classes are unbalanced, due to not many stocks gaining 10% in 10 days,
 
 ![ReceiverOperatingCharacteristic.png]({{site.baseurl}}/media/ReceiverOperatingCharacteristic.png)
 
-This show that the classifier is only a little better than random. Another way of visualizing the performance of the classification algorithm is a confusion matrix. e
+This show that the classifier is only a little better than random. Another way of visualizing the performance of the classification algorithm is a confusion matrix.
 
 ![Full_Confusion_Matrix.png]({{site.baseurl}}/media/Full_Confusion_Matrix.png)
 
