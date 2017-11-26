@@ -1,4 +1,4 @@
-# Unsupervised Stock Market Features Construction using Bidirectional Generative Adversarial Networks(BiGAN)
+# Unsupervised Stock Market Features Construction using Bidirectional Generative Adversarial Networks (BiGAN)
 
 Check out the write up of the project and the current results -- [StockMarketGAN](https://nmharmon8.github.io/StockMarketGAN/)
 
