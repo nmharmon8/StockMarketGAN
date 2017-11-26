@@ -68,7 +68,7 @@ python train_rf_bigan_shared_weights.py
 
 The Random Forests script will hold out a test set.
 
-To test your model deploy them to the deployed model directory.   
+To test your model deploy them to the deployed_models/ directory.   
 
 ```
 cd ../utils
