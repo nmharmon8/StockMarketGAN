@@ -66,7 +66,7 @@ When the BiGAN is finished training the Random Forest model can be trained using
 python train_rf_bigan_shared_weights.py
 ```
 
-The random forest script will hold out a test set and report AUC and print a confusion matrix.
+The Random Forests script will hold out a test set.
 
 To test your model deploy them to the deployed model directory.   
 
