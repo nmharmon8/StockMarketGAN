@@ -43,7 +43,7 @@ There are a very large number of false positives. If the false positive predicti
 
 ![Distribution_of_False_Positives.png]({{site.baseurl}}/media/Distribution_of_False_Positives.png)
 
-The distribution of the returns on the false positives does not look promising. They appeared skewed towards negative returns. 
+The distribution of the returns on the false positive predictions does not look promising. They appeared skewed towards negative returns. 
 
 ![Distribution_of_Positive_Predictions.png]({{site.baseurl}}/media/Distribution_of_Positive_Predictions.png)
 
