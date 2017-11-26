@@ -48,7 +48,7 @@ python get_stock_data.py
 
 The stocks can be changed by editing utils/companylist.csv.
 
-To train a model go to the train_models directory. And run the training script. 
+To train a model go to the train_models directory and run the training script. 
 
 ```bash
 cd ../train_models
