@@ -21,7 +21,7 @@ Check out the write up of the project and the current results -- [StockMarketGAN
 First clone the project.
 
 ```bash
-git clone git@github.com:nmharmon8/StockMarketGAN.git
+git clone https://github.com/nmharmon8/StockMarketGAN.git
 ```
 
 To set up the environment, run "source env.sh" from the root directory of the project. 
