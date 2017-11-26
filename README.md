@@ -5,7 +5,7 @@ In the case of Convolutional Neural Networks (CNN), the data representation is l
 
 For a full review of GANs reference the paper [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661.pdf) and tutorial for implementing a basic GAN [Generative Adversarial Nets in TensorFlow](https://wiseodd.github.io/techblog/2016/09/17/gan-tensorflow/).
 
-![gan.png]({{site.baseurl}}/media/gan.png)
+
 
 The Generator is trained to generate data that looks like historical price data of the target stocks over a distribution. The Discriminator is trained to tell the difference between the data from the Generator and the real data. The loss from the Discriminator (how the Discriminator has learned to tell if a sample in real or fake) is used to train the Generator to defeat the Discriminator. The competition between the Generator and the Discriminator forces the Discriminator to distinguish random from real variability while the Generator learns to map a distribution into the sample space.    
 This project explores Bidirectional Generative Adversarial Networks(BiGANs) based on the paper [Adversarial Feature Learning](https://arxiv.org/pdf/1605.09782.pdf). The primary difference in the BiGAN the Discriminator learns to determine the joint probability P(X, Z) = real/fake (where X is the sample and Z is the generating distribution). This, in turn, means that the Generator learns to encode a real sample into its generating distribution.  
