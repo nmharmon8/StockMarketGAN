@@ -60,7 +60,7 @@ The model will continue to train forever. Every 100 steps it will save its weigh
 Ctrl+c
 ```
 
-When the BiGAN is finished training the Random Forest model can be trained using the BiGAN features. The Random Forest model will load the most recently trained BiGAN from the model's directory. 
+When the BiGAN is finished training the Random Forest model can be trained using the BiGAN features. The Random Forest model will load the most recently trained BiGAN from the models/ directory. 
 
 ```bash
 python train_rf_bigan_shared_weights.py
