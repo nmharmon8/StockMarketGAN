@@ -54,7 +54,7 @@ To train a model go to the train_models directory and run the training script.
 cd ../train_models
 python train_bigan_shared_weights.py
 ```
-The model will continue to train forever. Every 100 steps it will save its weights to the model's directory. To finish training simple kill the script. 
+The model will continue to train forever. Every 100 steps it will save its weights to the models/ directory. To finish training simply kill the script. 
 
 ```bash
 Ctrl+c
