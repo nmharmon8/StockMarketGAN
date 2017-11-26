@@ -48,3 +48,8 @@ The distribution of the returns on the false positives does not look promising. 
 ![Distribution_of_Positive_Predictions.png]({{site.baseurl}}/media/Distribution_of_Positive_Predictions.png)
 
 If we look at the overall distribution of the returns of all positive predictions, it still apperss skewed toward negatiev returns. The mean return for all posstive predition end up being -0.18 a small negitive return.
+
+After some analysis of the predictions, it appears that the model will almost always predict that a stock coming into earning is going to gain. This is likely due to the sampling technique. The majority of the samples of a stock gaining 10% in 10 days surrounds the earnings call. Since the data is undersampled the vast majority of the earning calls the Random Forests see are earning calls that gained 10% over the proceeding 10 days, biasing the model to predict that all earning calls will make 10%. Possibly using a different sampling technique could solve this, such as oversampling stocks that performed very badly over 10 days. It is interesting that the model can identify when an earnings call is approaching just based on the 
+BiGAN features leaned from Open, High, Low, Close  and Volume.  
+
+Aditional improvement could be made to the model. Currently, missing days are not explicitly taken into account. The model was tested using linear interpolation over missing days including weekends, but that hurt the overall performance of the model. It might be better to only interpolate over missing trading days rather than weekend and holidays.
