@@ -3,7 +3,7 @@ Deep Learning constructs features using only raw data. The learned representatio
 # GAN 
 In the case of Convolutional Neural Networks (CNN), the data representation is learned in a supervised fashion with respect to a task such as classification. GANs learn features in an unsupervised fashion. The competitive learning process for GANs results in more of the possible feature space being explored. This reduces the potential for features being overfitted to the training data. Since the features are constructed in an unsupervised process classification algorithms trained on the features will generalize on a smaller amount of data. In fact, GANs promote generalization beyond the training data. 
 
-For a full review of GANs reference the paper [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661.pdf) and totorial for implmenting a basic GAN [Generative Adversarial Nets in TensorFlow](https://wiseodd.github.io/techblog/2016/09/17/gan-tensorflow/)
+For a full review of GANs reference the paper [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661.pdf) and tutorial for implementing a basic GAN [Generative Adversarial Nets in TensorFlow](https://wiseodd.github.io/techblog/2016/09/17/gan-tensorflow/)
 
 ![gan.png]({{site.baseurl}}/media/gan.png)
 
