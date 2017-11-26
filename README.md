@@ -20,14 +20,14 @@ This project makes a modification to the BiGAN. Rather than learning to encode a
 Historical prices of stocks are likely not very predictive of the future price, but it is free data. 
 
 **Training**
-The GAN is trained on 96 stocks off the Nasdaq. Each stock is normalized using a 20-day rolling window (data-mean)/(max-min). The last 2 years (504 days) of trading are held out as a test set. Time series of 20 day periods are constructed and used as input to the GAN. Once the GAN is finished training, the leaned encoding for the Discriminator features to the generation distribution is used as the new representation of the data. The features are not guaranteed to be predictive of the direction of the stock market, but for other modalities, they have been shown to work well. Random Forests is trained to classify whether the stock will gain 10% over the next 10 trading days. This creates an unbalanced training set so the majority class is undersampled before training the Random Forest. 
+The GAN is trained on 96 stocks off the Nasdaq. Each stock is normalized using a 20-day rolling window (data-mean)/(max-min). The last 2 years (504 days) of trading are held out as a test set. Time series of 20 day periods are constructed and used as input to the GAN. Once the GAN is finished training, the learned encoding for the Discriminator features to the generation distribution is used as the new representation of the data. The features are not guaranteed to be predictive of the direction of the stock market, but for other modalities, they have been shown to work well. Random Forests is trained to classify whether the stock will gain 10% over the next 10 trading days. This creates an unbalanced training set so the majority class is undersampled before training the Random Forest. 
 
 **Results**
-First, let's visualize the features leaned by the BiGAN. TSNE will be used to reduce the dimensions too 2D.
+First, let's visualize the features learned by the BiGAN. TSNE will be used to reduce the dimensions to 2D.
 
 ![tsne.png]({{site.baseurl}}/media/tsne.png)
 
-The red dots are negative samples and green are positive samples. There appears to be some structure to the features leaned by the BiGAN, but not related to the target. More experimentation is needed to see what the structure is following, but I suspect the each curve is a specific stock. 
+The red dots are negative samples and green are positive samples. There appears to be some structure to the features learned by the BiGAN, but not related to the target. More experimentation is needed to see what the structure is following, but I suspect the each curve is a specific stock. 
 
 Since the classes are unbalanced, due to not many stocks gaining 10% in 10 days, accuracy is a poor metric. If we always predicted that stocks would not go up then the accuracy would be above 90%. So instead of accuracy, we will use Area Under the Curve (AUC). Check out this video to learn more about [AUC](http://www.dataschool.io/roc-curves-and-auc-explained/). An AUC of 1 would be a perfect model while an AUC of 0.5 means that the model performs the same as randomly picking a label. We can visualize the performance of the classifier using a ROC curve. 
 
@@ -50,6 +50,6 @@ The distribution of the returns on the false positives does not look promising. 
 If we look at the overall distribution of the returns of all positive predictions, it still apperss skewed toward negatiev returns. The mean return for all posstive predition end up being -0.18 a small negitive return.
 
 After some analysis of the predictions, it appears that the model will almost always predict that a stock coming into earning is going to gain. This is likely due to the sampling technique. The majority of the samples of a stock gaining 10% in 10 days surrounds the earnings calls. Since the data is undersampled the vast majority of the earning calls that Random Forests sees are earning calls that gained 10% over the proceeding 10 days, biasing the model to predict that all earning calls will make 10%. Possibly using a different sampling technique could solve this, such as oversampling stocks that performed very badly over 10 days. It is interesting that the model can identify when an earnings call is approaching just based on the 
-BiGAN features leaned from Open, High, Low, Close  and Volume.  
+BiGAN features learned from Open, High, Low, Close  and Volume.  
 
 Aditional improvement could be made to the model. Currently, missing days are not explicitly taken into account. The model was tested using linear interpolation over missing days including weekends, but that hurt the overall performance of the model. It might be better to only interpolate over missing trading days rather than weekend and holidays.
