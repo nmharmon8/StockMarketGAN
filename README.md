@@ -23,11 +23,18 @@ First, let's visualize the features leaned by the BiGAN. TSNE will be used to re
 ![tsne.png]({{site.baseurl}}/media/tsne.png)
 The red dots are negative samples and green are positive samples. There appears to be some structure to the features leaned by the BiGAN, but not related to the target. More experimentation is needed to see what the structure is following, but I suspect the each curve is a specific stock. 
 
-Since the classes are unbalanced, due to not many stocks gaining 10% in 10 days, accuracy is a poor metric. If we always predicted that stocks would not go up then the accuracy would be above 90%. So instead of accuracy, we will use Area Under the Curve (AUC). Check out this video to learn more about [AUC](http://www.dataschool.io/roc-curves-and-auc-explained/). An AUC of 1 would be a perfect model while an AUC of 0.5 means that the model performs the same as randomly picking a label. We can visualize the performance of the classifier using a ROC curve. ![ReceiverOperatingCharacteristic.png]({{site.baseurl}}/media/ReceiverOperatingCharacteristic.png)
-This show that the classifier is only a little better than random. Another way of visualizing the performance of the classification algorithm is a confusion matrix. ![Full_Confusion_Matrix.png]({{site.baseurl}}/media/Full_Confusion_Matrix.png)The top row shows that the classifier correctly classified 29007 samples as true negatives while misclassifying 16780 same as false positives. The bottom row shows that the classifier misclassified 900 samples as false negatives and correctly classified 900 examples as true positives. The perfect confusion matrix would only have values on the diagonal.
+Since the classes are unbalanced, due to not many stocks gaining 10% in 10 days, accuracy is a poor metric. If we always predicted that stocks would not go up then the accuracy would be above 90%. So instead of accuracy, we will use Area Under the Curve (AUC). Check out this video to learn more about [AUC](http://www.dataschool.io/roc-curves-and-auc-explained/). An AUC of 1 would be a perfect model while an AUC of 0.5 means that the model performs the same as randomly picking a label. We can visualize the performance of the classifier using a ROC curve. 
+![ReceiverOperatingCharacteristic.png]({{site.baseurl}}/media/ReceiverOperatingCharacteristic.png)
 
-There are a very large number of false positives. If the false positives make some money just not 10% this could still be a valid trading strategy. So let's look at the distribution of the percent returns from the false positives.![Distribution_of_False_Positives.png]({{site.baseurl}}/media/Distribution_of_False_Positives.png)
+This show that the classifier is only a little better than random. Another way of visualizing the performance of the classification algorithm is a confusion matrix. 
+![Full_Confusion_Matrix.png]({{site.baseurl}}/media/Full_Confusion_Matrix.png)
+The top row shows that the classifier correctly classified 29007 samples as true negatives while misclassifying 16780 same as false positives. The bottom row shows that the classifier misclassified 900 samples as false negatives and correctly classified 900 examples as true positives. The perfect confusion matrix would only have values on the diagonal.
+
+There are a very large number of false positives. If the false positives make some money just not 10% this could still be a valid trading strategy. So let's look at the distribution of the percent returns from the false positives.
+![Distribution_of_False_Positives.png]({{site.baseurl}}/media/Distribution_of_False_Positives.png)
 
 The distribution of the returns on the false positives does not look promising. They appeared skewed towards negative returns. 
+
 ![Distribution_of_Positive_Predictions.png]({{site.baseurl}}/media/Distribution_of_Positive_Predictions.png)
+
 If we look at the overall distribution of the returns of all positive predictions, it still apperss skewed toward negatiev returns. The mean return for all posstive predition end up being -0.18 a small negitive return.
