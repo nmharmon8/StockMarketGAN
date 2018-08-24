@@ -1,4 +1,4 @@
-This project has stopped working. Quandl does not provide free stock data ant more. :(
+This project has stopped working. Quandl does not provide free stock data any more. :(
 
 # Unsupervised Stock Market Features Construction using Bidirectional Generative Adversarial Networks (BiGAN)
 
