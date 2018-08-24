@@ -32,7 +32,7 @@ cd StockMarketGAN
 source env.sh
 ```
 
-
+Quandl no longer provides free stock data :(
 Next get a free account with [Quandl](https://www.quandl.com/) and get an API key. Export your key. This can be added to the ~/.bashrc
 
 ```bash
