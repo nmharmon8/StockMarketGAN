@@ -1,3 +1,5 @@
+This project has stopped working. Quandl does not provide free stock data ant more. :(
+
 # Unsupervised Stock Market Features Construction using Bidirectional Generative Adversarial Networks (BiGAN)
 
 Check out the write up of the project and the current results -- [StockMarketGAN](https://nmharmon8.github.io/StockMarketGAN/)
@@ -31,8 +33,6 @@ This must be run  every time.
 cd StockMarketGAN
 source env.sh
 ```
-
-Quandl no longer provides free stock data :(
 
 Next get a free account with [Quandl](https://www.quandl.com/) and get an API key. Export your key. This can be added to the ~/.bashrc
 
