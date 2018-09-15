@@ -1,6 +1,6 @@
 This project has stopped working. Quandl does not provide free stock data any more. :(
 
-# I have set up a new project that downloads stock data directly from NASDAQ https://github.com/nmharmon8/DSD. It is not integrated into this project.
+# I have set up a new project that downloads stock data from Alpha Vantage https://github.com/nmharmon8/DSD. It is not integrated into this project.
 
 # Unsupervised Stock Market Features Construction using Bidirectional Generative Adversarial Networks (BiGAN)
 
